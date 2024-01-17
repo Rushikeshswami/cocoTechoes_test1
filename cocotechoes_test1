@@ -13,13 +13,13 @@ using namespace std;
 int main(){
     int empl[100];
      int commision=0; 
-    for(int i=0;i<100;i++){
+    for(int i=0;i<100;i++){          // we have created this loop to alot the commision to individual employee
       
     for(int j=0;j<12;j++){
        
-        commision=((j+1)* 1500);   //we have take random number as 1500  
+        commision=((j+1)* 1500);   //we have take random number as 1500  and calculating commision  
     }
-     empl[i]=commision;           //stired commision for 12 moonths for individual
+     empl[i]=commision;           //stored commision for 12 moonths for individual
      
     }
     
@@ -27,7 +27,7 @@ int main(){
     //to check the highest 5 employee with commision we are using 2 loops to sort
     for(int k=0;k<100;k++){
         for(int l=k+1;l<100;l++){
-            if(empl[k]>empl[l]){  //swapping the elements to sort
+            if(empl[k]>empl[l]){                                   //swapping the elements to sort
                 int swap=empl[k];
                 empl[k]=empl[l];
                 empl[l]=swap;
@@ -43,7 +43,7 @@ int main(){
     
     //to print first top 5 commisioned employees
     for(int m=100;m>=95;m--){
-        cout<<"employee"<<m<<" "<<empl[m]<<"Rs commision"<<endl;  //first 5 employees in array empl after sorting in decreasing order
+        cout<<"employee"<<m<<" "<<empl[m]<<"Rs commision"<<endl;  //first 5 employees in array empl after sorting in increasing order
     }
 }
 
