@@ -1,0 +1,49 @@
+
+//We have a bunch of employees. Each employee gets a commission every month, so 12
+// commissions a year.
+// You need to create data for about 100 employees, with names like “Employee1”, “Employee2”.
+// The commission for each month can be a random amount between 1000 and 5000. Find the
+// Top 5 people with the highest average commission
+// Hint: Use an array to store commission for each month of the year.
+
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int main(){
+    int empl[100];
+     int commision=0; 
+    for(int i=0;i<100;i++){
+      
+    for(int j=0;j<12;j++){
+       
+        commision=((j+1)* 1500);   //we have take random number as 1500  
+    }
+     empl[i]=commision;           //stired commision for 12 moonths for individual
+     
+    }
+    
+    
+    //to check the highest 5 employee with commision we are using 2 loops to sort
+    for(int k=0;k<100;k++){
+        for(int l=k+1;l<100;l++){
+            if(empl[k]>empl[l]){  //swapping the elements to sort
+                int swap=empl[k];
+                empl[k]=empl[l];
+                empl[l]=swap;
+                
+            }
+            else{
+                continue;
+            }
+            
+        }
+        
+    }
+    
+    //to print first top 5 commisioned employees
+    for(int m=100;m>=95;m--){
+        cout<<"employee"<<m<<" "<<empl[m]<<"Rs commision"<<endl;  //first 5 employees in array empl after sorting in decreasing order
+    }
+}
+
