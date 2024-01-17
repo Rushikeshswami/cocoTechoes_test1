@@ -7,43 +7,42 @@
 // Hint: Use an array to store commission for each month of the year.
 
 #include <iostream>
-#include<math.h>
-using namespace std;
+#include <cstdlib>
+#include <ctime>
 
-int main(){
+int main() {
     int empl[100];
-     int commision=0; 
-    for(int i=0;i<100;i++){          // we have created this loop to alot the commision to individual employee
-      
-    for(int j=0;j<12;j++){
-       
-        commision=((j+1)* 1500);   //we have take random number as 1500  and calculating commision  
-    }
-     empl[i]=commision;           //stored commision for 12 moonths for individual
-     
-    }
-    
-    
-    //to check the highest 5 employee with commision we are using 2 loops to sort
-    for(int k=0;k<100;k++){
-        for(int l=k+1;l<100;l++){
-            if(empl[k]>empl[l]){                                   //swapping the elements to sort
-                int swap=empl[k];
-                empl[k]=empl[l];
-                empl[l]=swap;
-                
-            }
-            else{
-                continue;
-            }
-            
+
+    srand(time(0));
+
+    // Assign random commission for each employee for 12 months
+    for (int i = 0; i < 100; i++) {
+        int commission = 0;
+        for (int j = 0; j < 12; j++) {
+            int randomCommission = rand() % 4001 + 1000;  // Generate a random commission between 1000 and 5000
+            commission += randomCommission;
         }
-        
+        empl[i] = commission;
     }
-    
-    //to print first top 5 commisioned employees
-    for(int m=100;m>=95;m--){
-        cout<<"employee"<<m<<" "<<empl[m]<<"Rs commision"<<endl;  //first 5 employees in array empl after sorting in increasing order
+
+    // Sort the employees based on commission in ascending order
+    for (int k = 0; k < 100; k++) {
+        for (int l = k + 1; l < 100; l++) {
+            if (empl[k] > empl[l]) {
+                int swap = empl[k];
+                empl[k] = empl[l];
+                empl[l] = swap;
+            }
+        }
     }
+
+    // Print the top 5 commissioned employees
+    std::cout << "Top 5 Employees with Highest Commission:\n";
+    for (int m = 99; m >= 95; m--) {
+        std::cout << "Employee " << m + 1 << ": " << empl[m] << " Rs commission" << std::endl;
+    }
+
+    return 0;
 }
+
 
